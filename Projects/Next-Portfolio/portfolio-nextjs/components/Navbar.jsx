@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import {useRouter} from 'next/router'
 import React, { useState, useEffect } from 'react';
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
@@ -12,6 +13,23 @@ const [nav, setNav] = useState(false);
 const [shadow, setShadow] = useState(false);
 const [navBg, setNavBg] = useState('#ecf0f3');
 const [linkColor, setLinkColor] = useState('#1f2937');
+const [position, setPosition] = useState('fixed')
+const router = useRouter();
+
+useEffect(() => {
+if (
+    router.asPath === '/nfl' ||
+    router.asPath === '/fastcare' ||
+    router.asPath === '/sports' ||
+    router.asPath === '/animal'
+) {
+    setNavBg('transparent');
+    setLinkColor('#ecf0f3');
+} else {
+    setNavBg('#ecf0f3');
+    setLinkColor('#1f2937');
+}
+}, [router]);
 
 const handleNav = () => {
 setNav(!nav);
@@ -161,7 +179,7 @@ return (
                         </p>
                     <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
                         <a
-                        href='https://www.linkedin.com/in/clint-briley-50056920a/'
+                        href='https://www.linkedin.com/in/jburen/'
                         target='_blank'
                         rel='noreferrer'
                         >
@@ -170,7 +188,7 @@ return (
                         </div>
                         </a>
                         <a
-                        href='https://github.com/fireclint'
+                        href='https://github.com/JCBuren'
                         target='_blank'
                         rel='noreferrer'
                         >

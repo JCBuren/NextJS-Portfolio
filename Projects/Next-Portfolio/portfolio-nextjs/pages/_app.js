@@ -9,10 +9,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Navbar />
-      <Main/>
-      <About/>
-      <Skills/>
-      <Projects/>
       <Component {...pageProps} />
     </>
   );
